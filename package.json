@@ -1,0 +1,17 @@
+{
+  "name": "hakka-local-test",
+  "version": "1.0.0",
+  "description": "客語隨拍即說 v2.0 - 本地測試服務",
+  "main": "hakka-proxy-local.js",
+  "scripts": {
+    "start": "node hakka-proxy-local.js",
+    "test": "node -e \"require('./hakka-proxy-local.js').testServices()\"",
+    "dev": "nodemon hakka-proxy-local.js"
+  },
+  "keywords": ["hakka", "translation", "tts", "proxy"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}

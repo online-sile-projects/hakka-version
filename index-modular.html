@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>客語隨拍即說 v2.0</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🎯 客語隨拍即說 v2.0</h1>
+        
+        <!-- Step 1: 拍照或選圖片 -->
+        <div class="step">
+            <div class="step-title">📸 步驟 1：拍照或選擇圖片</div>
+            <div class="image-input-container">
+                <div class="image-input-buttons">
+                    <button class="btn btn-primary" onclick="openCamera()">📷 拍照</button>
+                    <button class="btn btn-primary" onclick="selectImage()">🖼️ 選擇圖片</button>
+                </div>
+                <input type="file" id="fileInput" accept="image/*" onchange="handleImageSelect(event)">
+                <video id="camera" class="image-preview hidden" autoplay playsinline></video>
+                <canvas id="canvas" class="hidden"></canvas>
+                <img id="imagePreview" class="image-preview hidden" alt="預覽圖片">
+            </div>
+        </div>
+
+        <!-- Step 2: 進度條 -->
+        <div class="step hidden" id="progressStep">
+            <div class="step-title">⚡ 處理中...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div id="progressText">準備中...</div>
+        </div>
+
+        <!-- Step 3: 結果顯示 -->
+        <div class="step hidden" id="resultStep">
+            <div class="step-title">🎉 辨識結果</div>
+            <div class="result-container">
+                <div class="result-text"><strong>中文名稱：</strong><span id="chineseName"></span></div>
+                <div class="result-text"><strong>客語翻譯：</strong><span id="hakkaName"></span></div>
+                <div class="audio-player">
+                    <button class="btn btn-secondary" id="playAudioBtn" onclick="playAudio()" disabled>
+                        🔊 播放客語發音
+                    </button>
+                    <audio id="audioPlayer" controls class="hidden"></audio>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="resetApp()">🔄 重新開始</button>
+        </div>
+
+        <!-- 錯誤顯示 -->
+        <div class="error hidden" id="errorMessage"></div>
+    </div>
+
+    <!-- 引入配置和腳本 -->
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
